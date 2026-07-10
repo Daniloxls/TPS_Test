@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dst53egjla5qt"]
+
+[ext_resource type="Script" uid="uid://bdwh5130cilxu" path="res://Assets/CharacterModel/character_model.gd" id="1_k37lv"]
+[ext_resource type="PackedScene" uid="uid://bvcrrbd5ht3vv" path="res://Assets/CharacterModel/Personagem_animado.fbx" id="1_r4ghl"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k37lv"]
+animation = &"walk_foward_001"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_popir"]
+animation = &"sprint_foward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8ogvf"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lwucm"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xshgk"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_2ugy0"]
+sync = true
+xfade_time = 0.2
+input_0/name = "Idle"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Walk"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "Sprint"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+input_3/name = "Jump"
+input_3/auto_advance = false
+input_3/break_loop_at_end = false
+input_3/reset = true
+input_4/name = "Fall"
+input_4/auto_advance = false
+input_4/break_loop_at_end = false
+input_4/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_jamks"]
+graph_offset = Vector2(-87.07065, 28.495087)
+nodes/output/position = Vector2(960, 120)
+nodes/movimento/node = SubResource("AnimationNodeTransition_2ugy0")
+nodes/movimento/position = Vector2(600, 120)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_xshgk")
+nodes/Animation/position = Vector2(260, 40)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_k37lv")
+"nodes/Animation 2/position" = Vector2(200, 220)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_popir")
+"nodes/Animation 3/position" = Vector2(200, 400)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_8ogvf")
+"nodes/Animation 4/position" = Vector2(220, 580)
+"nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_lwucm")
+"nodes/Animation 5/position" = Vector2(380, 660)
+node_connections = [&"output", 0, &"movimento", &"movimento", 0, &"Animation", &"movimento", 1, &"Animation 2", &"movimento", 2, &"Animation 3", &"movimento", 3, &"Animation 4", &"movimento", 4, &"Animation 5"]
+
+[node name="CharacterModel" type="Node3D" unique_id=66552736 node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("1_k37lv")
+animation_tree = NodePath("AnimationTree")
+
+[node name="Personagem_animado" parent="." unique_id=296567780 instance=ExtResource("1_r4ghl")]
+
+[node name="Armature" parent="Personagem_animado" index="0" unique_id=1202488114]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 3.7748947e-08, 0, -3.7748947e-08, 0.5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Personagem_animado/Armature" index="0" unique_id=1652139289]
+bones/0/position = Vector3(0.013343219, 1.4094326, -0.0038227485)
+bones/0/rotation = Quaternion(-0.0076784575, 0.013734805, -0.038038023, 0.9991524)
+bones/1/rotation = Quaternion(0.0032654938, -0.010777776, 0.015618613, 0.9998147)
+bones/2/rotation = Quaternion(0.0054133064, 0.0011916709, 0.051851273, 0.9986395)
+bones/3/rotation = Quaternion(0.005477646, 0.005803093, 0.051127538, 0.9986603)
+bones/4/rotation = Quaternion(0.016761513, -0.0019996685, -0.019087067, 0.99967533)
+bones/5/rotation = Quaternion(0.012751544, 0.0077772145, -0.07186251, 0.9973028)
+bones/8/rotation = Quaternion(-0.66172546, -0.36691484, 0.50313586, -0.41754904)
+bones/9/rotation = Quaternion(0.5503061, -0.0022771147, -0.05555747, 0.8331095)
+bones/10/rotation = Quaternion(0.0031129157, -0.00035516315, 0.1262191, 0.99199754)
+bones/11/rotation = Quaternion(0.076037146, -0.115033224, -0.0040957867, 0.9904388)
+bones/12/rotation = Quaternion(0.07664674, 0.2978679, 0.16328703, 0.93741)
+bones/13/rotation = Quaternion(0.11594988, -0.12543735, -0.086099505, 0.9815336)
+bones/14/rotation = Quaternion(0.033537854, -0.031802956, -0.04419679, 0.9979531)
+bones/17/rotation = Quaternion(0.09053768, -0.00058594265, -0.0147145735, 0.99578416)
+bones/18/rotation = Quaternion(0.18014257, -0.0009959177, -0.0062760953, 0.9836201)
+bones/19/rotation = Quaternion(0.08869945, 0.0020730393, 0.030319795, 0.99559474)
+bones/22/rotation = Quaternion(0.62103564, -0.40435004, 0.5534879, 0.38008806)
+bones/23/rotation = Quaternion(0.42734116, 0.007701536, -0.0015230979, 0.90405643)
+bones/24/rotation = Quaternion(0.0025266465, 0.00065036333, -0.15394928, 0.9880753)
+bones/25/rotation = Quaternion(0.09071872, -0.022359757, 0.059244376, 0.9938613)
+bones/26/rotation = Quaternion(0.056860585, -0.30111822, -0.10948929, 0.9455723)
+bones/27/rotation = Quaternion(0.12735128, 0.11342779, 0.059241712, 0.98356813)
+bones/28/rotation = Quaternion(0.02710144, 0.058606982, -0.12046558, 0.99061537)
+bones/31/rotation = Quaternion(0.08893329, 0.0015409866, 0.011834838, 0.9959661)
+bones/32/rotation = Quaternion(0.18008126, 0.0009650324, 0.011459836, 0.9835846)
+bones/33/rotation = Quaternion(0.1183871, -0.0014929634, -0.047227155, 0.9918427)
+bones/36/rotation = Quaternion(0.108720355, 0.137362, 0.9763636, -0.12659344)
+bones/37/rotation = Quaternion(-0.2555094, -0.077503495, 0.014066897, 0.9635924)
+bones/38/rotation = Quaternion(0.51279193, -0.12610392, 0.0016738025, 0.84919924)
+bones/39/rotation = Quaternion(0.32414213, -0.011446734, 0.0037482595, 0.94593173)
+bones/42/rotation = Quaternion(-0.025455013, -0.051541947, 0.99448955, -0.08767111)
+bones/43/rotation = Quaternion(-0.024014616, 0.04392797, 0.048615903, 0.9975621)
+bones/44/rotation = Quaternion(0.5056286, 0.020075811, -0.16219045, 0.847131)
+bones/45/rotation = Quaternion(0.32428405, 0.013124919, -0.004276658, 0.9458591)
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=491634073]
+root_node = NodePath("../Personagem_animado")
+tree_root = SubResource("AnimationNodeBlendTree_jamks")
+anim_player = NodePath("../Personagem_animado/AnimationPlayer")
+parameters/movimento/current_state = "Idle"
+parameters/movimento/transition_request = ""
+parameters/movimento/current_index = 0
+
+[editable path="Personagem_animado"]
