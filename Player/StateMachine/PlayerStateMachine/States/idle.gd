@@ -8,7 +8,6 @@ func _state_input(_event: InputEvent) -> void:
 		
 func _enter() -> void:
 	animation_state_changed.emit("Idle")
-	pass
 
 func _update(delta: float) -> void:
 	set_direction()

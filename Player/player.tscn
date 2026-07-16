@@ -29,7 +29,6 @@ collision_layer = 2
 script = ExtResource("1_oul6g")
 
 [node name="CharacterModel" parent="." unique_id=66552736 instance=ExtResource("2_5htga")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1110592326]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9948337, 0)
@@ -81,6 +80,7 @@ script = ExtResource("7_apopc")
 [node name="SprintFall" type="Node" parent="Statemachine" unique_id=1785489690]
 script = ExtResource("10_apopc")
 
+[connection signal="mouse_rotated" from="Camera" to="CharacterModel" method="_on_camera_mouse_rotated"]
 [connection signal="sprint_ended" from="Statemachine/Sprint" to="Camera" method="_on_sprint_ended"]
 [connection signal="sprint_started" from="Statemachine/Sprint" to="Camera" method="_on_sprint_sprint_started"]
 [connection signal="sprint_ended" from="Statemachine/SprintJump" to="Camera" method="_on_sprint_ended"]

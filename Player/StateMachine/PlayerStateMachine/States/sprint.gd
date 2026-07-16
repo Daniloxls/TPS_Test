@@ -26,3 +26,5 @@ func _update(delta: float) -> void:
 	
 	if not is_on_floor():
 		finished.emit("SprintFall")
+		
+	input_direction_changed.emit(input_dir)

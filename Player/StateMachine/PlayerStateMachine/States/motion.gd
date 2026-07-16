@@ -3,6 +3,7 @@ class_name  Motion
 
 signal velocity_updated(vel: Vector3)
 signal animation_state_changed(state: String)
+signal input_direction_changed(_input_direction: Vector2)
 
 var speed: float
 var sprint_speed: float

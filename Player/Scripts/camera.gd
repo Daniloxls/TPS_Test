@@ -1,5 +1,7 @@
 extends Node3D
 
+signal mouse_rotated(_rotation: Vector2)
+
 @export var character: CharacterBody3D
 @export var rear_spring_arm: SpringArm3D
 @export var camera: Camera3D
@@ -50,6 +52,8 @@ func camera_look(mouse_movement: Vector2) -> void:
 	rotate_object_local(Vector3(1,0, 0), -camera_rotation.y)
 	
 	camera_rotation.y = clamp( camera_rotation.y, -max_y_rotation, max_y_rotation)
+	
+	mouse_rotated.emit(camera_rotation)
 	
 func enter_sprint() -> void:
 	if camera_tween:
