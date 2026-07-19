@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cigkgeplo35su"]
+
+[ext_resource type="Texture2D" uid="uid://cqwt0buj2oiti" path="res://Assets/CharacterModel/texture_body.png" id="1_5dwhg"]
+
+[resource]
+resource_name = "Material.001"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_5dwhg")
+emission_enabled = true
