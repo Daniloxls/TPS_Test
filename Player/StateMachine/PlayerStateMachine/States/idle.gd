@@ -5,9 +5,6 @@ func _state_input(_event: InputEvent) -> void:
 	if _event.is_action_pressed("jump"):
 		finished.emit("Jump")
 		
-		
-func _enter() -> void:
-	animation_state_changed.emit("Idle")
 
 func _update(delta: float) -> void:
 	set_direction()

@@ -4,6 +4,7 @@ signal sprint_ended
 
 func _enter() -> void:
 	jump()
+	return super._enter()
 	
 
 func _state_input(_event: InputEvent) -> void:

@@ -2,8 +2,13 @@ extends State
 class_name  Motion
 
 signal velocity_updated(vel: Vector3)
-signal animation_state_changed(state: String)
-signal input_direction_changed(_input_direction: Vector2)
+@warning_ignore("unused_signal")
+signal direction_updated(dir: Vector2)
+@warning_ignore("unused_signal")
+signal animation_change_requested(animation: String)
+
+
+@export var on_enter_animation: String
 
 var speed: float
 var sprint_speed: float
@@ -35,6 +40,10 @@ func _ready() -> void:
 	jump_gravity = PLAYER_MOVEMENT_STATS.get_jump_gravity()
 	fall_gravity = PLAYER_MOVEMENT_STATS.get_fall_gravity()
 	jump_velocity = PLAYER_MOVEMENT_STATS.get_jump_velocity(jump_gravity)
+	
+func _enter() -> void:
+	if on_enter_animation:
+		animation_change_requested.emit(on_enter_animation)
 	
 func set_direction() -> void:
 	input_dir = Input.get_vector("left", "right", "up", "down")

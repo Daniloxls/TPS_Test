@@ -2,7 +2,7 @@ extends Motion
 
 func _enter() -> void:
 	jump()
-	animation_state_changed.emit("Jump")
+	return super._enter()
 	
 func _update(delta: float) -> void:
 	set_direction()

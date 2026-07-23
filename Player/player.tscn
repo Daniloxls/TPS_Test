@@ -61,24 +61,31 @@ start_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="Statemachine" unique_id=84050085]
 script = ExtResource("4_od3ui")
+on_enter_animation = "Idle"
 
 [node name="Run" type="Node" parent="Statemachine" unique_id=1628446272]
 script = ExtResource("5_00tjw")
+on_enter_animation = "Walk"
 
 [node name="Sprint" type="Node" parent="Statemachine" unique_id=357741402]
 script = ExtResource("6_od3ui")
+on_enter_animation = "Sprint"
 
 [node name="Jump" type="Node" parent="Statemachine" unique_id=396095415]
 script = ExtResource("6_x3vf3")
+on_enter_animation = "Jump"
 
 [node name="SprintJump" type="Node" parent="Statemachine" unique_id=1238456963]
 script = ExtResource("8_x3vf3")
+on_enter_animation = "SprintJump"
 
 [node name="Fall" type="Node" parent="Statemachine" unique_id=987594666]
 script = ExtResource("7_apopc")
+on_enter_animation = "Fall"
 
 [node name="SprintFall" type="Node" parent="Statemachine" unique_id=1785489690]
 script = ExtResource("10_apopc")
+on_enter_animation = "SprintFall"
 
 [connection signal="mouse_rotated" from="Camera" to="CharacterModel" method="_on_camera_mouse_rotated"]
 [connection signal="sprint_ended" from="Statemachine/Sprint" to="Camera" method="_on_sprint_ended"]

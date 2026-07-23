@@ -2,8 +2,6 @@ extends Motion
 
 signal sprint_ended
 
-func _enter() -> void:
-	pass
 	
 func _state_input(_event: InputEvent) -> void:
 	if _event.is_action_pressed("sprint"):
